@@ -8,6 +8,15 @@ import submitProject from "./modules/submitProject.js"
 // Store all projects and tasks in two seperate arrays
 let projects = [];
 let tasks = [];
+if (localStorage.length != 0){
+    let projectString = localStorage.getItem("projects").split(",");
+    projects = projectString;
+    if (projects[0] == "") {
+        projects.splice(0, 1);
+    }
+    let taskString = JSON.parse(localStorage.getItem("tasks"));
+    tasks = taskString;
+}
 let menu = document.getElementById("menu");
 let alerted = false;
 
@@ -66,8 +75,13 @@ projectButton.addEventListener("click", function() {
 });
 
 // Create a default project with a default task
-projects.push("Default");
-tasks.push(makeTask("Default", "Default task", "None", "01-01-2020", "High"));
+if (localStorage.length == 0) {
+    projects.push("Default");
+}
+if (localStorage.length == 0) {
+    tasks.push(makeTask("Default", "Default task", "None", "01-01-2020", "High"));
+}
 
 // Render the projects with their tasks
+// Save the data locally
 render(projects, tasks);

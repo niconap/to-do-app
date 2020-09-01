@@ -4,7 +4,7 @@ const render = function(projects, tasks) {
     container.innerHTML = "";
     
     // Render the project containers
-    if(projects.length != 0) {
+    if(projects.length != 0 && projects[0] != "") {
         projects.forEach(project => {
             let projectContainer = document.createElement("div");
             projectContainer.setAttribute("id", project);
@@ -91,6 +91,11 @@ const render = function(projects, tasks) {
         deleteButton.innerHTML = "Delete";
         currentTask.appendChild(deleteButton);
     }
+
+
+
+    localStorage.setItem("projects", projects);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 export default render

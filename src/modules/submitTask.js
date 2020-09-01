@@ -1,4 +1,6 @@
-const submit = function() {
+import { submitProject } from "./newProject";
+
+const submitTask = function() {
     let newTask = [];
 
     newTask.push(document.getElementById("projectselect").value);
@@ -9,4 +11,4 @@ const submit = function() {
     return newTask;
 }
 
-export default submit
+export default submitTask

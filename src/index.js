@@ -1,14 +1,28 @@
 import makeTask from "./modules/makeTask.js"
 import render from "./modules/render.js"
+import addMenu from "./modules/add.js"
 
 // Store all projects and tasks in two seperate arrays
 let projects = [];
 let tasks = [];
+let menu = document.getElementById("menu");
+
+// Add an eventlistener to the add button
+// Add a button that will submit a new task
+let addButton = document.getElementById("plus");
+addButton.addEventListener("click", function(){
+    addMenu(projects);
+    let complete = document.createElement("button");
+    complete.innerHTML = "Complete";
+    complete.addEventListener("click", function() {
+
+    });
+    menu.appendChild(complete);
+});
 
 // Create a default project with a default task
-projects.push("default");
-tasks.push(makeTask("default", "default task", "none", "01-01-2020", "high"));
-tasks.push(makeTask("default", "default task", "none", "01-01-2020", "low"));
+projects.push("Default");
+tasks.push(makeTask("Default", "default task", "none", "01-01-2020", "high"));
 
 // Render the projects with their tasks
 render(projects, tasks);

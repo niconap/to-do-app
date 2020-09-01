@@ -1,5 +1,5 @@
 // Create a menu for entering a new task
-const addMenu = function (projects) {
+const addMenu = function(projects) {
     let container = document.getElementById("menu");
     container.innerHTML = "";
 

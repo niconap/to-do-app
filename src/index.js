@@ -1,6 +1,7 @@
 import makeTask from "./modules/makeTask.js"
 import render from "./modules/render.js"
 import addMenu from "./modules/add.js"
+import submit from "./modules/submitTask.js"
 
 // Store all projects and tasks in two seperate arrays
 let projects = [];
@@ -15,7 +16,11 @@ addButton.addEventListener("click", function(){
     let complete = document.createElement("button");
     complete.innerHTML = "Complete";
     complete.addEventListener("click", function() {
-
+        let newTask = submit();
+        menu.innerHTML = "";
+        tasks.push(makeTask(newTask[0], newTask[1], newTask[2], newTask[3], newTask[4]));
+        render(projects, tasks);
+        createButtons();
     });
     menu.appendChild(complete);
 });

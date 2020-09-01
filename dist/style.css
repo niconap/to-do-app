@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
+
+* {
+    margin: auto;
+    font-family: Questrial, sans-serif;
+    outline: none;
+}
+
+.project {
+    background-color: #ededed;
+    margin: 3%;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 0px rgba(171,171,171,1);
+}
+
+h1 {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#menu {
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 1%;
+    text-align: center;
+}
+
+#alert {
+    color: red;
+}
+
+label {
+    font-size: 15px;
+}
+
+#menutitle {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.tasktitle {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.taskelement {
+    color: #525252;
+    margin-top: 2px;
+}
+
+.project button {
+    font-family: 'Baloo 2', sans-serif;
+    background: #ededed;
+    border: 3px solid black;
+    border-radius: 50px;
+    transition: background-color ease 0.3s;
+    transition: color ease 0.3s;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    float: right;
+    margin-bottom: 2%;
+}
+
+.project input {
+    margin: 3px;
+}
+
+label {
+    margin: 3px;
+}
+
+button {
+    font-family: 'Baloo 2', sans-serif;
+    background: white;
+    border: 3px solid black;
+    border-radius: 50px;
+    transition: background-color ease 0.3s;
+    transition: color ease 0.3s;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#tasktitle {
+    height: 20px;
+    border-radius: 50px;
+    border: 3px solid black;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+#projecttitle {
+    height: 20px;
+    border-radius: 50px;
+    border: 3px solid black;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+#taskdescription {
+    height: 20px;
+    border-radius: 50px;
+    border: 3px solid black;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+#taskdate {
+    height: 20px;
+    border-radius: 50px;
+    border: 3px solid black;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+#taskpriority {
+    height: 37px;
+    border-radius: 50px;
+    border: 3px solid black;
+    margin-right: 5px;
+}
+
+#projectselect {
+    height: 37px;
+    border-radius: 50px;
+    border: 3px solid black;
+    margin-right: 5px;
+}
+
+#plustask {
+    margin-top: 3%;
+    margin-right: 5px;
+}
+
+#complete {
+    height: 37px;
+    border-radius: 50px;
+    border: 3px solid black;
+}
+
+#quit {
+    font-family: 'Baloo 2', sans-serif;
+    border: 3px solid black;
+    border-radius: 50px;
+    transition: background-color ease 0.3s;
+    transition: color ease 0.3s;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-bottom: 2%;
+    margin-right: 5px;
+}
+
+#buttonbar {
+    text-align: center;
+}

@@ -8,6 +8,7 @@ const render = function(projects, tasks) {
         projects.forEach(project => {
             let projectContainer = document.createElement("div");
             projectContainer.setAttribute("id", project);
+            projectContainer.setAttribute("class", "project");
             container.appendChild(projectContainer);
             projectContainer = document.getElementById(project);
             let projectTitle = document.createElement("h1");
@@ -18,6 +19,7 @@ const render = function(projects, tasks) {
         for (let j = 0; j < projects.length; j++) {
             let currentProject = document.getElementById(projects[j]);
             let deleteButton = document.createElement("button");
+            deleteButton.setAttribute("id", "deletetask");
             deleteButton.addEventListener("click", function() {
                 let currentProject = projects[j];
                 projects.splice(j, 1);
@@ -60,12 +62,12 @@ const render = function(projects, tasks) {
 
             let due = document.createElement("p");
             due.setAttribute("class","taskelement");
-            due.innerHTML = taskDue;
+            due.innerHTML = "Due date: " + taskDue;
             taskWrapper.appendChild(due);
             
             let priority = document.createElement("p");
             priority.setAttribute("class","taskelement");
-            priority.innerHTML = taskPriority;
+            priority.innerHTML = taskPriority + " priority";
             taskWrapper.appendChild(priority);
 
             let checkbox = document.createElement("input");
@@ -84,11 +86,12 @@ const render = function(projects, tasks) {
     for (let i = 0; i < tasks.length; i++) {
         let currentTask = document.getElementById(i);
         let deleteButton = document.createElement("button");
+        deleteButton.setAttribute("id", "deleteproject");
         deleteButton.addEventListener("click", function(){
             tasks.splice(i, 1);
             render(projects, tasks);
         });
-        deleteButton.innerHTML = "Delete";
+        deleteButton.innerHTML = "x";
         currentTask.appendChild(deleteButton);
     }
 

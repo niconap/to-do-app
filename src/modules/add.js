@@ -10,6 +10,7 @@ const addMenu = function(projects) {
 
     let quit = document.createElement("button");
     quit.innerHTML = "x";
+    quit.setAttribute("id", "quit");
     quit.addEventListener("click", removeMenu);
     container.appendChild(quit);
 

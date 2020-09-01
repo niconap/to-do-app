@@ -28,6 +28,7 @@ taskButton.addEventListener("click", function(){
     alerted = false;
     let complete = document.createElement("button");
     complete.innerHTML = "Complete";
+    complete.setAttribute("id", "complete");
     complete.addEventListener("click", function() {
         let newTask = submitTask();
         if (newTask[1] == "" || newTask[2] == "" || newTask[3] == "") {
@@ -54,6 +55,7 @@ projectButton.addEventListener("click", function() {
     alerted = false;
     let complete = document.createElement("button");
     complete.innerHTML = "Complete";
+    complete.setAttribute("id", "complete");
     complete.addEventListener("click", function() {
         let newProject = submitProject();
         if (newProject == "") {

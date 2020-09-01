@@ -66,6 +66,13 @@ label {
     margin-bottom: 2%;
 }
 
+.project button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+}
+
 .project input {
     margin: 3px;
 }

@@ -15,3 +15,4 @@ Skills shown in this project:
 - Using JavaScript to make a simple web app
 - Using HTML to setup a simple webpage
 - Using CSS to style a webpage
+- Using local storage to store data for later use

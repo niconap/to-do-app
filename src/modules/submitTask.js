@@ -1,5 +1,6 @@
 import { submitProject } from "./newProject";
 
+// Return the input values to make a task
 const submitTask = function() {
     let newTask = [];
 

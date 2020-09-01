@@ -1,3 +1,4 @@
+// Create a menu to create a new project
 const newProject = function () {
     let container = document.getElementById("menu");
     container.innerHTML = "";

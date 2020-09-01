@@ -14,6 +14,25 @@ const render = function(projects, tasks) {
             projectTitle.innerHTML = project;
             projectContainer.appendChild(projectTitle);
         })
+
+        for (let j = 0; j < projects.length; j++) {
+            let currentProject = document.getElementById(projects[j]);
+            let deleteButton = document.createElement("button");
+            deleteButton.addEventListener("click", function() {
+                let currentProject = projects[j];
+                projects.splice(j, 1);
+                let number = 0;
+                tasks.forEach(task => {
+                    if (task.project == currentProject) {
+                        tasks.splice(number, 1);
+                        number += 1;
+                    }
+                });
+                render(projects, tasks);
+            });
+            deleteButton.innerHTML = "x";
+            currentProject.appendChild(deleteButton);
+        }
     }
 
     // Render the task containers and put them in the right project container
@@ -60,6 +79,17 @@ const render = function(projects, tasks) {
             taskWrapper.appendChild(label);
             index += 1;
         });
+    }
+
+    for (let i = 0; i < tasks.length; i++) {
+        let currentTask = document.getElementById(i);
+        let deleteButton = document.createElement("button");
+        deleteButton.addEventListener("click", function(){
+            tasks.splice(i, 1);
+            render(projects, tasks);
+        });
+        deleteButton.innerHTML = "Delete";
+        currentTask.appendChild(deleteButton);
     }
 }
 

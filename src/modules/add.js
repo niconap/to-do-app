@@ -35,17 +35,17 @@ const addMenu = function(projects) {
     container.appendChild(taskPriority);
 
     let high = document.createElement("option");
-    high.setAttribute("value", "high");
+    high.setAttribute("value", "High");
     high.innerHTML = "High";
     taskPriority.appendChild(high);
 
     let medium = document.createElement("option");
-    medium.setAttribute("value", "medium");
+    medium.setAttribute("value", "Medium");
     medium.innerHTML = "Medium";
     taskPriority.appendChild(medium);
 
     let low = document.createElement("option");
-    low.setAttribute("value", "low");
+    low.setAttribute("value", "Low");
     low.innerHTML = "Low";
     taskPriority.appendChild(low);
 

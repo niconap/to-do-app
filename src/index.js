@@ -16,6 +16,7 @@ let alerted = false;
 let taskButton = document.getElementById("plustask");
 taskButton.addEventListener("click", function(){
     addMenu(projects);
+    alerted = false;
     let complete = document.createElement("button");
     complete.innerHTML = "Complete";
     complete.addEventListener("click", function() {
@@ -33,7 +34,6 @@ taskButton.addEventListener("click", function(){
             alerted = false;
             tasks.push(makeTask(newTask[0], newTask[1], newTask[2], newTask[3], newTask[4]));
             render(projects, tasks);
-            createButtons();
         }
     });
     menu.appendChild(complete);
@@ -42,6 +42,7 @@ taskButton.addEventListener("click", function(){
 let projectButton = document.getElementById("plusproject");
 projectButton.addEventListener("click", function() {
     newProject();
+    alerted = false;
     let complete = document.createElement("button");
     complete.innerHTML = "Complete";
     complete.addEventListener("click", function() {
@@ -59,7 +60,6 @@ projectButton.addEventListener("click", function() {
             alerted = false;
             projects.push(newProject);
             render(projects, tasks);
-            createButtons();
         }
     });
     menu.appendChild(complete);
@@ -67,23 +67,7 @@ projectButton.addEventListener("click", function() {
 
 // Create a default project with a default task
 projects.push("Default");
-tasks.push(makeTask("Default", "default task", "none", "01-01-2020", "high"));
+tasks.push(makeTask("Default", "Default task", "None", "01-01-2020", "High"));
 
 // Render the projects with their tasks
 render(projects, tasks);
-createButtons();
-
-// Insert "Delete" buttons into each task and give them event listeners
-function createButtons() {
-    for (let i = 0; i < tasks.length; i++) {
-        let currentTask = document.getElementById(i);
-        let deleteButton = document.createElement("button");
-        deleteButton.addEventListener("click", function(){
-            tasks.splice(i, 1);
-            render(projects, tasks);
-            createButtons();
-        });
-        deleteButton.innerHTML = "Delete";
-        currentTask.appendChild(deleteButton);
-    }
-}

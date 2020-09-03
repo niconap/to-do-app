@@ -89,9 +89,10 @@ if (localStorage.length == 0) {
     projects.push("Default");
 }
 if (localStorage.length == 0) {
-    tasks.push(makeTask("Default", "Default task", "None", "01-01-2020", "High"));
+    tasks.push(makeTask("Default", "Default task", "None", "01-01-2020", "High", "No"));
 }
 
 // Render the projects with their tasks
 // Save the data locally
 render(projects, tasks);
+console.log(tasks);

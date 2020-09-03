@@ -72,7 +72,10 @@ const render = function(projects, tasks) {
 
             let checkbox = document.createElement("input");
             checkbox.setAttribute("type","checkbox");
-            checkbox.setAttribute("id","check" + index);
+            checkbox.setAttribute("id", index);
+            if (task.completed == "Yes") {
+                checkbox.checked = true;
+            }
             taskWrapper.appendChild(checkbox);
 
             let label = document.createElement("label");
@@ -93,9 +96,17 @@ const render = function(projects, tasks) {
         });
         deleteButton.innerHTML = "x";
         currentTask.appendChild(deleteButton);
+
+        let checkbox = document.getElementById(i);
+        checkbox.addEventListener("click", function () {
+            if (tasks[i].completed == "No") {
+                tasks[i].completed = "Yes";
+            } else {
+                tasks[i].completed = "No";
+            }
+            render(projects, tasks);
+        })
     }
-
-
 
     localStorage.setItem("projects", projects);
     localStorage.setItem("tasks", JSON.stringify(tasks));

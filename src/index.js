@@ -31,11 +31,19 @@ taskButton.addEventListener("click", function(){
     complete.setAttribute("id", "complete");
     complete.addEventListener("click", function() {
         let newTask = submitTask();
-        if (newTask[0] == "" || newTask[1] == "" || newTask[2] == "" || newTask[3] == "") {
+        if (newTask[1] == "" || newTask[2] == "" || newTask[3] == "") {
             if (alerted == false) {
                 let alert = document.createElement("p");
                 alert.setAttribute("id", "alert");
                 alert.innerHTML = "Please enter something in all inputs!"
+                menu.appendChild(alert);
+                alerted = true;
+            }
+        } else if (newTask[0] == "") {
+            if (alerted == false) {
+                let alert = document.createElement("p");
+                alert.setAttribute("id", "alert");
+                alert.innerHTML = "Please create a project first!"
                 menu.appendChild(alert);
                 alerted = true;
             }

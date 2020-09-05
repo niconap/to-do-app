@@ -192,7 +192,12 @@ const render = {
 
                 let due = document.createElement("p");
                 due.setAttribute("class","taskelement");
-                due.innerHTML = "Due date: " + taskDue;
+                console.log(taskDue);
+                if (taskDue == "") {
+                    due.innerHTML = "Due date: N/A";
+                } else {
+                    due.innerHTML = "Due date: " + taskDue;
+                }
                 taskWrapper.appendChild(due);
                 
                 let priority = document.createElement("p");

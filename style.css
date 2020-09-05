@@ -30,6 +30,7 @@ button:hover {
     color: white;
     cursor: pointer;
 }
+
 label {
     font-size: 15px;
 }
@@ -40,6 +41,8 @@ label {
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0px 0px 15px 0px rgba(171,171,171,1);
+    max-width: 30%;
+    text-align: left;
 }
 
 .tasktitle {
@@ -71,7 +74,6 @@ label {
     color: white;
     cursor: pointer;
 }
-}
 
 .project input {
     margin: 3px;
@@ -83,6 +85,9 @@ label {
     margin-top: 1%;
     text-align: center;
 }
+
+#content {
+    text-align: center;
 
 #alert {
     color: red;

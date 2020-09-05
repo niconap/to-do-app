@@ -280,6 +280,90 @@ const newProject = {
     }
 }
 
+// Add an eventlistener to the add button
+// Add a button that will submit a new task
+const buttons = {
+    taskButton: function() {
+        let taskButton = document.getElementById("plustask");
+        taskButton.addEventListener("click", function(){
+            addMenu.createMenu();
+            alerted = false;
+            let complete = document.createElement("button");
+            complete.innerHTML = "Complete";
+            complete.setAttribute("id", "complete");
+            complete.addEventListener("click", function() {
+                let newTask = submitTask.submit();
+                if (newTask[1] == "" || newTask[2] == "") {
+                    if (alerted == false) {
+                        let alert = document.createElement("p");
+                        alert.setAttribute("id", "alert");
+                        alert.innerHTML = "Please enter something in all inputs!"
+                        menu.appendChild(alert);
+                        alerted = true;
+                    }
+                } else if (newTask[0] == "") {
+                    if (alerted == false) {
+                        let alert = document.createElement("p");
+                        alert.setAttribute("id", "alert");
+                        alert.innerHTML = "Please create a project first!"
+                        menu.appendChild(alert);
+                        alerted = true;
+                    }
+                } else {
+                    menu.innerHTML = "";
+                    alerted = false;
+                    tasks.push(makeTask(newTask[0], newTask[1], newTask[2], newTask[3], newTask[4]));
+                    render.renderProjects();
+                    render.renderTasks();
+                }
+            });
+            menu.appendChild(complete);
+        });
+    },
+
+    projectButton: function() {
+        let projectButton = document.getElementById("plusproject");
+        projectButton.addEventListener("click", function() {
+            newProject.createMenu();
+            alerted = false;
+            let complete = document.createElement("button");
+            complete.innerHTML = "Complete";
+            complete.setAttribute("id", "complete");
+            complete.addEventListener("click", function() {
+                let newProject = makeProject.submit();
+                if (newProject == "") {
+                    if (alerted == false) {
+                        let alert = document.createElement("p");
+                        alert.setAttribute("id", "alert");
+                        alert.innerHTML = "Please enter something in all inputs!"
+                        menu.appendChild(alert);
+                        alerted = true;
+                    }
+                } else {
+                    menu.innerHTML = "";
+                    alerted = false;
+                    projects.push(newProject);
+                    render.renderProjects();
+                    render.renderTasks();
+                }
+            });
+            menu.appendChild(complete);
+        });
+    }
+}
+
+// Create a default project with a default task
+const defaultTask = {
+    create: function () {
+        if (localStorage.length == 0) {
+            projects.push("Default");
+        }
+        if (localStorage.length == 0) {
+            tasks.push(makeTask("Default", "Default task", "None", "01-01-2020", "High", "No"));
+        }
+    }  
+}
+
 // Store all projects and tasks in two seperate arrays
 let projects = [];
 let tasks = [];
@@ -295,79 +379,12 @@ if (localStorage.length != 0){
 let menu = document.getElementById("menu");
 let alerted = false;
 
-// Add an eventlistener to the add button
-// Add a button that will submit a new task
-let taskButton = document.getElementById("plustask");
-taskButton.addEventListener("click", function(){
-    addMenu.createMenu();
-    alerted = false;
-    let complete = document.createElement("button");
-    complete.innerHTML = "Complete";
-    complete.setAttribute("id", "complete");
-    complete.addEventListener("click", function() {
-        let newTask = submitTask.submit();
-        if (newTask[1] == "" || newTask[2] == "") {
-            if (alerted == false) {
-                let alert = document.createElement("p");
-                alert.setAttribute("id", "alert");
-                alert.innerHTML = "Please enter something in all inputs!"
-                menu.appendChild(alert);
-                alerted = true;
-            }
-        } else if (newTask[0] == "") {
-            if (alerted == false) {
-                let alert = document.createElement("p");
-                alert.setAttribute("id", "alert");
-                alert.innerHTML = "Please create a project first!"
-                menu.appendChild(alert);
-                alerted = true;
-            }
-        } else {
-            menu.innerHTML = "";
-            alerted = false;
-            tasks.push(makeTask(newTask[0], newTask[1], newTask[2], newTask[3], newTask[4]));
-            render.renderProjects();
-            render.renderTasks();
-        }
-    });
-    menu.appendChild(complete);
-});
+// Add eventlisteners to the buttons
+buttons.taskButton();
+buttons.projectButton();
 
-let projectButton = document.getElementById("plusproject");
-projectButton.addEventListener("click", function() {
-    newProject.createMenu();
-    alerted = false;
-    let complete = document.createElement("button");
-    complete.innerHTML = "Complete";
-    complete.setAttribute("id", "complete");
-    complete.addEventListener("click", function() {
-        let newProject = makeProject.submit();
-        if (newProject == "") {
-            if (alerted == false) {
-                let alert = document.createElement("p");
-                alert.setAttribute("id", "alert");
-                alert.innerHTML = "Please enter something in all inputs!"
-                menu.appendChild(alert);
-                alerted = true;
-            }
-        } else {
-            menu.innerHTML = "";
-            alerted = false;
-            projects.push(newProject);
-            render.renderProjects();
-            render.renderTasks();
-        }
-    });
-    menu.appendChild(complete);
-});
-
-// Create a default project with a default task
-if (localStorage.length == 0) {
-    projects.push("Default");
-}
-if (localStorage.length == 0) {
-    tasks.push(makeTask("Default", "Default task", "None", "01-01-2020", "High", "No"));
-}
+// Create a default project and task if there's nothing in localStorage
+defaultTask.create();
 
 // Render the projects with their tasks
 // Save the data locally

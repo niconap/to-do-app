@@ -343,7 +343,7 @@ const buttons = {
                     if (alerted == false) {
                         let alert = document.createElement("p");
                         alert.setAttribute("id", "alert");
-                        alert.innerHTML = "Please don't enter more than 22 characters!"
+                        alert.innerHTML = "Please don't enter more than 20 characters!"
                         menu.appendChild(alert);
                         alerted = true;
                     }

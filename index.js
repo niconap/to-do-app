@@ -339,7 +339,7 @@ const buttons = {
                         menu.appendChild(alert);
                         alerted = true;
                     }
-                } else if (newProject.length > 22) {
+                } else if (newProject.length > 20) {
                     if (alerted == false) {
                         let alert = document.createElement("p");
                         alert.setAttribute("id", "alert");

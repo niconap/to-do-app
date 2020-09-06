@@ -339,6 +339,14 @@ const buttons = {
                         menu.appendChild(alert);
                         alerted = true;
                     }
+                } else if (newProject.length >= 22) {
+                    if (alerted == false) {
+                        let alert = document.createElement("p");
+                        alert.setAttribute("id", "alert");
+                        alert.innerHTML = "Please don't enter more than 22 characters!"
+                        menu.appendChild(alert);
+                        alerted = true;
+                    }
                 } else {
                     menu.innerHTML = "";
                     alerted = false;

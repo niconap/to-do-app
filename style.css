@@ -200,6 +200,14 @@ input {
     cursor: pointer;
 }
 
+#theme {
+    opacity: 50%;
+    margin-left: 70px;
+    align-items: center;
+    bottom: 20px;
+    position: fixed;
+}
+
 :root {
     --background-color: white;
     --buttonbackground1: white;

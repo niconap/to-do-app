@@ -371,6 +371,7 @@ const buttons = {
                 document.documentElement.style.setProperty("--buttonborder", "white");
                 document.documentElement.style.setProperty("--projectbackground", "#2e2e2e");
                 document.documentElement.style.setProperty("--shadow-color", "black");
+                document.getElementById("githubicon").setAttribute("src", "GitHub-Mark-Light-64px.png");
             } else {
                 theme = "light";
                 document.documentElement.style.setProperty("--background-color", "white");
@@ -381,6 +382,7 @@ const buttons = {
                 document.documentElement.style.setProperty("--buttonborder", "black");
                 document.documentElement.style.setProperty("--projectbackground", "#ededed");
                 document.documentElement.style.setProperty("--shadow-color", "rgba(171,171,171,1)");
+                document.getElementById("githubicon").setAttribute("src", "GitHub-Mark-64px.png");
             }
         })
     }   

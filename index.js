@@ -363,10 +363,24 @@ const buttons = {
         button.addEventListener("click", function() {
             if (theme == "light") {
                 theme = "dark";
-                document.documentElement.style.setProperty("--background-color", "black");
+                document.documentElement.style.setProperty("--background-color", "#424242");
+                document.documentElement.style.setProperty("--buttonbackground1", "#424242");
+                document.documentElement.style.setProperty("--buttonbackground2", "white");
+                document.documentElement.style.setProperty("--buttontextcolor1", "white");
+                document.documentElement.style.setProperty("--buttontextcolor2", "#424242");
+                document.documentElement.style.setProperty("--buttonborder", "white");
+                document.documentElement.style.setProperty("--projectbackground", "#2e2e2e");
+                document.documentElement.style.setProperty("--shadow-color", "black");
             } else {
                 theme = "light";
                 document.documentElement.style.setProperty("--background-color", "white");
+                document.documentElement.style.setProperty("--buttonbackground1", "white");
+                document.documentElement.style.setProperty("--buttonbackground2", "black");
+                document.documentElement.style.setProperty("--buttontextcolor1", "black");
+                document.documentElement.style.setProperty("--buttontextcolor2", "white");
+                document.documentElement.style.setProperty("--buttonborder", "black");
+                document.documentElement.style.setProperty("--projectbackground", "#ededed");
+                document.documentElement.style.setProperty("--shadow-color", "rgba(171,171,171,1)");
             }
         })
     }   

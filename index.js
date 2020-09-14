@@ -192,7 +192,6 @@ const render = {
 
                 let due = document.createElement("p");
                 due.setAttribute("class","taskelement");
-                console.log(taskDue);
                 if (taskDue == "") {
                     due.innerHTML = "Due date: N/A";
                 } else {
@@ -357,7 +356,20 @@ const buttons = {
             });
             menu.appendChild(complete);
         });
-    }
+    },
+
+    themeButton: function() {
+        let button = document.getElementById("theme");
+        button.addEventListener("click", function() {
+            if (theme == "light") {
+                theme = "dark";
+                document.documentElement.style.setProperty("--background-color", "black");
+            } else {
+                theme = "light";
+                document.documentElement.style.setProperty("--background-color", "white");
+            }
+        })
+    }   
 }
 
 // Create a default project with a default task
@@ -386,10 +398,12 @@ if (localStorage.length != 0){
 }
 let menu = document.getElementById("menu");
 let alerted = false;
+let theme = "light";
 
 // Add eventlisteners to the buttons
 buttons.taskButton();
 buttons.projectButton();
+buttons.themeButton();
 
 // Create a default project and task if there's nothing in localStorage
 defaultTask.create();

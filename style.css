@@ -7,6 +7,10 @@
     outline: none;
 }
 
+body {
+    background-color: var(--background-color);
+}
+
 h1 {
     display: inline-block;
     margin-right: 5px;
@@ -188,4 +192,8 @@ label {
 #githubicon:hover {
     opacity: 100%;
     cursor: pointer;
+}
+
+:root {
+    --background-color: white;
 }

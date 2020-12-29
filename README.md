@@ -1,3 +1,5 @@
+# To-Do App
+
 This is a simple to-do list app completely made with JavaScript.
 You can: 
 - Create tasks
